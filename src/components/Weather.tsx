@@ -1,12 +1,18 @@
 import { FC } from "react";
 import { OpenWeatherReportData } from "../data";
+import { WeatherIcon } from "./WeatherIcon.tsx";
 
 interface Props {
   data: OpenWeatherReportData;
 }
 
 export const Weather: FC<Props> = ({ data: { current } }) => {
-  const { description } = current.weather[0];
+  const { description, icon } = current.weather[0];
 
-  return <h1>{description}</h1>;
+  return (
+    <>
+      <WeatherIcon icon={icon} description={description} />
+      <h1>{description}</h1>
+    </>
+  );
 };

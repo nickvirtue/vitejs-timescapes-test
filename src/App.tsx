@@ -1,17 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
+import { useWeatherDataLatLon } from "./data";
 
 import "./App.css";
 
 function App() {
-  const { isPending, error, data, isFetching } = useQuery({
-    queryKey: ["data"],
-    queryFn: async () => {
-      const response = await fetch(
-        "https://api.openweathermap.org/data/3.0/onecall?lat=-40.0013&lon=175.06952&units=metric&appid=b74fea3b143484ad8d0cd437859da7f1",
-      );
-      return await response.json();
-    },
-  });
+  const { isPending, error, data, isFetching } = useWeatherDataLatLon();
+
   if (isPending) {
     return <h1>Pending</h1>;
   }

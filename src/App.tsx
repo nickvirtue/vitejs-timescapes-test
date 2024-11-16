@@ -1,10 +1,15 @@
 import { useWeatherDataLatLon } from "./data";
+import { Weather } from "./components";
 
 import "./App.css";
-import { Weather } from "./components/Weather.tsx";
+
+const AUCKLAND = {
+  lat: -36.98162252922073,
+  lon: 174.8792538058189,
+};
 
 function App() {
-  const { isPending, error, data, isFetching } = useWeatherDataLatLon();
+  const { isPending, error, data, isFetching } = useWeatherDataLatLon(AUCKLAND);
 
   if (isPending) {
     return <h1>Pending</h1>;

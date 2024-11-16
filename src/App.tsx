@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const { isPending, error, data, isFetching } = useQuery({
+    queryKey: ["data"],
+    queryFn: async () => {
+      const response = await fetch(
+        "https://api.openweathermap.org/data/3.0/onecall?lat=-40.0013&lon=175.06952&units=metric&appid=b74fea3b143484ad8d0cd437859da7f1",
+      );
+      return await response.json();
+    },
+  });
+  if (!data) {
+    return <h1>No Data</h1>;
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

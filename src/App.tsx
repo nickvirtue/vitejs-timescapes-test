@@ -1,5 +1,6 @@
-import "./App.css";
 import { useQuery } from "@tanstack/react-query";
+
+import "./App.css";
 
 function App() {
   const { isPending, error, data, isFetching } = useQuery({
@@ -11,14 +12,18 @@ function App() {
       return await response.json();
     },
   });
-  if (!data) {
-    return <h1>No Data</h1>;
+  if (isPending) {
+    return <h1>Pending</h1>;
   }
-  return (
-    <>
-      <h1>Vite + React</h1>
-    </>
-  );
+
+  if (isFetching) {
+    return <h1>Fetching</h1>;
+  }
+
+  if (error || !data) {
+    return <h1>Error</h1>;
+  }
+  return <h1>{data.current.weather[0].description}</h1>;
 }
 
 export default App;

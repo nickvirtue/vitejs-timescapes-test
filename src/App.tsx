@@ -1,6 +1,7 @@
 import { useWeatherDataLatLon } from "./data";
 
 import "./App.css";
+import { Weather } from "./components/Weather.tsx";
 
 function App() {
   const { isPending, error, data, isFetching } = useWeatherDataLatLon();
@@ -16,7 +17,8 @@ function App() {
   if (error || !data) {
     return <h1>Error</h1>;
   }
-  return <h1>{data.current.weather[0].description}</h1>;
+
+  return <Weather data={data} />;
 }
 
 export default App;

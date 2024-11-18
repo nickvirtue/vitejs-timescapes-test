@@ -13,4 +13,12 @@ Basic demo of fetching data from an API endpoint and displaying using custom com
 ### Improvements
 
 * Re-fetch the data every n seconds and return the previous results while doing so
-* Add an interface to allow the user to select/enter a location 
+* Add an interface to allow the user to select/enter a location
+
+### Code/Tooling
+
+I used https://vite.new/react-ts to bootstrap the project, but I prefer desktop IDEs to
+web editors so dev was done through GitHub and Intellij Idea
+
+To run:
+```npm run dev```

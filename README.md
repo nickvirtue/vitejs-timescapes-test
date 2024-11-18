@@ -18,7 +18,7 @@ Basic demo of fetching data from an API endpoint and displaying using custom com
 ### Code/Tooling
 
 I used https://vite.new/react-ts to bootstrap the project, but I prefer desktop IDEs to
-web editors so dev was done through GitHub and Intellij Idea
+web editors so dev was done locally through GitHub and Intellij Idea.
 
 To run:
 ```npm run dev```

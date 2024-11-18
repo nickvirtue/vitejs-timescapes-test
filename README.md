@@ -8,6 +8,7 @@ Basic demo of fetching data from an API endpoint and displaying using custom com
 ### Tech
 
 * ReactQuery: Used as it's simple to get going and we used this in my previous jobs
+* AI: Did not use
 
 ### Improvements
 
